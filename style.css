@@ -22,6 +22,15 @@ body {
   overflow-x: hidden;
   font-family: "Rubik", sans-serif;
 }
+body::-webkit-scrollbar {
+  width: 0.40rem;
+}
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+body::-webkit-scrollbar-thumb {
+  background: #6158f5;
+}
 .button {
   background: none;
   border: 2px solid var(--primary);
@@ -109,7 +118,7 @@ h4 {
   grid-column: 6/9;
 }
 .welcome-img img {
-  width: 200%;
+  width: 300%;
 }
 .welcome-text a {
   margin: 20px 0;
@@ -151,7 +160,7 @@ h4 {
   text-align: center;
 }
 #skills img {
-  height: 100px;
+  height: 65px;
   margin: 10px auto;
 }
 #contact {
@@ -231,6 +240,9 @@ footer i {
   }
   #skills {
     padding: 30px 100px;
+  }
+  #skills img {
+    height: 80px;
   }
   footer {
     background-size: 20%;
