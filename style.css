@@ -3,7 +3,8 @@
   --primary: #6158f5;
   --secondary: #fff;
 }
-/* reset */
+
+/* RESET */
 body,
 p,
 a,
@@ -16,13 +17,13 @@ li {
 li {
   list-style-type: none;
 }
-/* base styles */
+
+/* BASE STYLES */
 html {
   scroll-behavior: smooth;
 }
 body {
   background: var(--secondary);
-  overflow-x: hidden;
   font-family: "Rubik", sans-serif;
 }
 body::-webkit-scrollbar {
@@ -34,10 +35,23 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: #6158f5;
 }
+header {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0px;
+  background: white;
+}
+nav {
+  min-height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+}
+main {
+  overflow-x: hidden;
+}
 .button {
   background: none;
   border: 2px solid var(--primary);
-  color: var(--primary);
   padding: 6px 12px;
   border-radius: 20px;
   text-transform: uppercase;
@@ -45,9 +59,14 @@ body::-webkit-scrollbar-thumb {
   display: inline-block;
   cursor: pointer;
 }
+.button a {
+  color: var(--primary);
+}
 .button:hover {
-  color: #fff;
   background: var(--primary);
+}
+.button:hover a {
+  color: var(--secondary);
 }
 input,
 textarea {
@@ -56,7 +75,6 @@ textarea {
   border-radius: 20px;
   border: 2px solid #9893d8;
 }
-
 input:focus,
 textarea:focus {
   outline: none;
@@ -64,9 +82,24 @@ textarea:focus {
 }
 form button {
   outline: none;
+  color: black;
+}
+form button {
+  transition: all 0.3s ease;
+}
+form button:hover {
+  color: var(--secondary);
+}
+.bubble {
+  position: absolute;
+  z-index: -2;
+  background: linear-gradient(to right top, #fff, #6158f5);
+  transform: scale(2);
+  transition: all 0.3s ease;
+  border-radius: 20px;
 }
 
-/* fonts */
+/* FONTS */
 h1,
 h2,
 h3,
@@ -93,7 +126,7 @@ h4 {
   font-size: 1.1em;
 }
 
-/* mobile styles */
+/* MOBILE STYLES */
 .grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -112,20 +145,23 @@ h4 {
   border-bottom: 3px solid var(--primary);
 }
 #welcome {
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
 }
 span {
   transition: all 0.9s ease;
-  color: var(--secondary);
+  opacity: 0;
 }
 span.fadeUpper {
   color: var(--primary);
+  opacity: 1;
 }
 span.fadeLower {
   color: #1e1e24;
+  opacity: 1;
 }
 .welcome-text {
   grid-column: 1/6;
+  align-self: center;
 }
 .welcome-text h2 {
   margin: 0;
@@ -134,10 +170,14 @@ span.fadeLower {
   grid-column: 6/9;
 }
 .welcome-img img {
-  width: 300%;
+  width: 215%;
+  overflow-x: hidden;
 }
-.welcome-text a {
-  margin: 20px 0;
+.welcome-text div {
+  display: none;
+}
+.welcome-text p {
+  font-size: 0.9em;
 }
 #portfolio {
   background-color: #f6f9fc;
@@ -147,18 +187,32 @@ span.fadeLower {
   margin-bottom: 0;
   text-align: center;
 }
-.projects a {
-  grid-column: 1/9;
-  margin: 20px, 0;
-  display: flex;
+.projects {
+  text-align: center;
 }
-.projects a * {
+.projects div {
+  grid-column: 1/9;
+}
+.projects div * {
   margin: 0 20px;
   max-width: 40%;
   align-self: center;
 }
+.projects a * {
+  text-align: center;
+  vertical-align: middle;
+}
 .projects h4 {
   color: #6772e5;
+}
+.projects p {
+  display: none;
+}
+.project-container h4 {
+  display: inline-block;
+}
+.project-container p {
+  display: none;
 }
 #skills {
   padding: 30px 20px;
@@ -177,7 +231,7 @@ span.fadeLower {
 }
 #skills img {
   height: 65px;
-  margin: 10px auto;
+  margin-top: 25px;
 }
 #contact {
   padding: 30px 20px;
@@ -225,8 +279,11 @@ footer i {
   width: 20px;
   margin: 0 5px;
 }
-/* small tablet styles */
+/* SMALL TABLET STYLES */
 @media screen and (min-width: 620px) {
+  #welcome {
+    padding-top: 40px;
+  }
   .welcome-text {
     grid-column: 1/5;
   }
@@ -239,33 +296,49 @@ footer i {
   .projects {
     margin-top: 40px;
   }
-  .projects a {
+  .project-container h4,
+  .project-container p {
+    display: inline-block;
+    margin: 0;
+  }
+  .projects div {
     grid-column: span 4;
     display: block;
     margin: 20px 0;
   }
-  .projects a:last-child {
-    grid-column: 3/7;
+  .projects div:nth-child(1) {
+    grid-column: 2/4;
   }
-  .projects a * {
+  .projects div:nth-child(2) {
+    grid-column: 4/6;
+    padding-top: 140px;
+  }
+  .projects div:nth-child(3) {
+    grid-column: 6/8;
+  }
+  .projects div * {
     max-width: 60%;
-    margin: 10px 20%;
+    margin: 10px 0;
   }
   .projects h4 {
     text-align: center;
+  }
+  .projects p {
+    display: inline-block;
   }
   #skills {
     padding: 30px 100px;
   }
   #skills img {
     height: 80px;
+    margin-top: 30px;
   }
   footer {
     background-size: 20%;
   }
 }
 
-/* large tablets & laptop styles */
+/* LARGE TABLETS & LAPTOP STYLES */
 @media screen and (min-width: 960px) {
   body {
     font-size: 18px;
@@ -290,7 +363,7 @@ footer i {
     grid-column: 6/9;
     justify-content: flex-end;
     align-self: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .site-nav a:hover {
     color: var(--primary);
@@ -298,22 +371,37 @@ footer i {
   .welcome-text {
     align-self: center;
   }
+  .welcome-text a {
+    display: inline-block;
+  }
+  .welcome-text div {
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
   #welcome {
     padding-bottom: 40px;
   }
-  .projects a:nth-child(1) {
+  .projects div:nth-child(1) {
     grid-column: 2/4;
   }
-  .projects a:nth-child(2) {
+  .projects div:nth-child(2) {
     grid-column: 4/6;
     padding-top: 140px;
   }
-  .projects a:nth-child(3) {
+  .projects div:nth-child(3) {
     grid-column: 6/8;
   }
-  .projects a * {
+  .projects div * {
     max-width: 80%;
-    margin: 10px 10%;
+    margin: 10px 0;
+  }
+  .projects div {
+    transition: all 0.3s ease;
+  }
+  .projects div:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
   }
   #skills {
     padding: 30px 20px;
@@ -330,7 +418,7 @@ footer i {
   }
 }
 
-/* desktop styles */
+/* DESKTOP STYLES */
 @media screen and (min-width: 1200px) {
   body {
     font-size: 20px;
@@ -339,20 +427,20 @@ footer i {
   #portfolio,
   #skills,
   #contact {
-    padding: 90px 0;
+    padding: 80px 0;
   }
   .site-nav {
     padding: 0;
   }
-  .projects a:nth-child(1) {
+  .projects div:nth-child(1) {
     grid-column: 1/3;
   }
-  .projects a:nth-child(3) {
+  .projects div:nth-child(3) {
     grid-column: 7/9;
   }
-  .projects a * {
+  .projects div * {
     max-width: 100%;
-    margin: 30px 0;
+    margin: 20px 0;
   }
   footer {
     padding: 80px 0;
