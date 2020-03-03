@@ -17,78 +17,83 @@
     <title>Mobile-First Responsive Portfolio</title>
   </head>
   <body>
-    <nav class="site-nav grid">
-      <h1>Jane Doe</h1>
-      <ul>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <section id="welcome" class="grid">
-      <div class="welcome-text">
-        <h2 class="welcome-title-upper">UX Designer</h2>
-        <h2 class="welcome-title-lower">& Mobile Developer</h2>
+    <header>
+      <nav class="site-nav grid">
+        <h1><a href="#">Jane Doe</a></h1>
+        <ul>
+          <li><a data-page="portfolio" href="#portfolio">Portfolio</a></li>
+          <li><a data-page="skills" href="#skills">Skills</a></li>
+          <li><a data-page="contact" href="#contact">Contact</a></li>
+          <div class="bubble"></div>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="welcome" class="grid">
+        <div class="welcome-text">
+          <h2 class="welcome-title-upper">UX Designer</h2>
+          <h2 class="welcome-title-lower">& Mobile Developer</h2>
+          <p class="leading">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo
+            consequat.
+          </p>
+          <a href="#portfolio" class="button">View my work</a>
+        </div>
+        <div class="welcome-img">
+          <img src="./assets/mobile-development.svg" alt="banner image" />
+        </div>
+      </div>
+      <section data-index="0" id="portfolio" class="portfolio">
+        <h3>My Projects</h3>
+        <div class="projects grid">
+          <a href="#">
+            <img src="./assets/designer-life.svg" alt="agency design work" />
+            <h4>Agency Design Work</h4>
+          </a>
+          <a href="#">
+            <img src="./assets/healthy-options.svg" alt="food scanner" />
+            <h4>Food Scanner</h4>
+          </a>
+          <a href="#">
+            <img src="./assets/investment.svg" alt="investment tracker" />
+            <h4>Investment Tracker</h4>
+          </a>
+        </div>
+      </section>
+      <section data-index="1" id="skills" class="skills">
+        <h3>My Skills</h3>
+        <ul class="grid">
+          <li>
+            <img src="./assets/design-tools.svg" alt="design tools" />
+            <h4>Design Tools</h4>
+          </li>
+          <li>
+            <img src="./assets/scrum.svg" alt="scrum" />
+            <h4>Scrum</h4>
+          </li>
+          <li>
+            <img src="./assets/programming.svg" alt="programming" />
+            <h4>Full Stack Development</h4>
+          </li>
+          <li>
+            <img src="./assets/mobile-testing.svg" alt="mobile testing" />
+            <h4>Mobile Testing</h4>
+          </li>
+        </ul>
+      </section>
+      <section data-index="2" id="contact" class="contact">
+        <h3>Get in Touch</h3>
         <p class="leading">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo
-          consequat.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
-        <a href="#portfolio" class="button">View my work</a>
-      </div>
-      <div class="welcome-img">
-        <img src="./assets/mobile-development.svg" alt="banner image" />
-      </div>
-    </section>
-    <section id="portfolio">
-      <h3>My Projects</h3>
-      <div class="projects grid">
-        <a href="#">
-          <img src="./assets/designer-life.svg" alt="agency design work" />
-          <h4>Agency Design Work</h4>
-        </a>
-        <a href="#">
-          <img src="./assets/healthy-options.svg" alt="food scanner" />
-          <h4>Food Scanner</h4>
-        </a>
-        <a href="#">
-          <img src="./assets/investment.svg" alt="investment tracker" />
-          <h4>Investment Tracker</h4>
-        </a>
-      </div>
-    </section>
-    <section id="skills">
-      <h3>My Skills</h3>
-      <ul class="grid">
-        <li>
-          <img src="./assets/design-tools.svg" alt="design tools" />
-          <h4>Design Tools</h4>
-        </li>
-        <li>
-          <img src="./assets/scrum.svg" alt="scrum" />
-          <h4>Scrum</h4>
-        </li>
-        <li>
-          <img src="./assets/programming.svg" alt="programming" />
-          <h4>Full Stack Development</h4>
-        </li>
-        <li>
-          <img src="./assets/mobile-testing.svg" alt="mobile testing" />
-          <h4>Mobile Testing</h4>
-        </li>
-      </ul>
-    </section>
-    <section id="contact">
-      <h3>Get in Touch</h3>
-      <p class="leading">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
-      <form>
-        <input type="text" placeholder="NAME" />
-        <input type="email" placeholder="EMAIL" />
-        <textarea placeholder="YOUR MESSAGE"></textarea>
-        <button class="button">Send Message</button>
-      </form>
-    </section>
+        <form>
+          <input type="text" placeholder="NAME" />
+          <input type="email" placeholder="EMAIL" />
+          <textarea placeholder="YOUR MESSAGE"></textarea>
+          <button class="button">Send Message</button>
+        </form>
+      </section>
+    </main>
     <footer>
       <div class="grid">
         <p class="copyright">&copy 2020 - Jane Doe</p>
@@ -102,6 +107,7 @@
         </ul>
       </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="navbarAnimation.js"></script>
+    <script src="titleAnimation.js"></script>
   </body>
 </html>
